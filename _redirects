@@ -1,0 +1,57 @@
+# Cloudflare Pages — redirects
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+# Format: SOURCE  DESTINATION  STATUS
+
+# ----- Canonicalize the root -----
+/home               /                       301
+/home.html          /                       301
+/index              /                       301
+/index.html         /                       301
+/index.htm          /                       301
+
+# ----- Common page-name variants and trailing slashes -----
+/services/          /services.html          301
+/service            /services.html          301
+/inspection-services /services.html         301
+
+/pricing/           /pricing.html           301
+/prices             /pricing.html           301
+/cost               /pricing.html           301
+/rates              /pricing.html           301
+
+/about/             /about.html             301
+/about-us           /about.html             301
+/joseph             /about.html             301
+
+/contact/           /contact.html           301
+/schedule           /contact.html#schedule  301
+/book               /contact.html#schedule  301
+/book-inspection    /contact.html#schedule  301
+
+/faq/               /faq.html               301
+/faqs               /faq.html               301
+/questions          /faq.html               301
+
+/sample             /sample-report.html     301
+/sample/            /sample-report.html     301
+/sample-report/     /sample-report.html     301
+/report             /sample-report.html     301
+/reports            /sample-report.html     301
+
+/areas              /service-areas.html     301
+/area               /service-areas.html     301
+/service-area       /service-areas.html     301
+/service-areas/     /service-areas.html     301
+/locations          /service-areas.html     301
+/coverage           /service-areas.html     301
+
+# ----- Legacy / removed paths from earlier site versions -----
+/wdo                /services.html          301
+/termite            /services.html          301
+/new-construction   /services.html          301
+/builder-warranty   /services.html          301
+/11-month           /services.html          301
+
+# ----- Catch-all 404 (Cloudflare also auto-serves /404.html for missing paths;
+#       this is a defensive backstop) -----
+/*                  /404.html               404

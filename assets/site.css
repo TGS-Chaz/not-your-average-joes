@@ -1,0 +1,613 @@
+/* ============================================
+   NOT YOUR AVERAGE JOES — DARK THEME REBUILD
+   Frame.io / framer.com / healthytogether.co lane
+   ============================================ */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ink-0: #06090f;
+  --ink-1: #0a0f1c;
+  --ink-2: #0f1525;
+  --ink-3: #131a2d;
+  --ink-4: #1a2240;
+  --ink-5: #232b47;
+  --ink-6: #2c3550;
+  --paper: #f5f7fa;
+  --paper-muted: #a8b0bd;
+  --paper-faint: #6b7385;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --brand-blue: #005ea1;
+  --brand-blue-bright: #4a90d9;
+  --brand-orange: #bf551d;
+  --brand-orange-soft: #d97757;
+  --brand-orange-light: #ffb596;
+}
+
+/* ----- Body / base ----- */
+.dark-theme {
+  background-color: var(--ink-1);
+  color: var(--paper);
+  font-family: 'Work Sans', system-ui, sans-serif;
+}
+
+/* Better default font weight for dark on light text */
+.dark-theme p,
+.dark-theme li {
+  font-weight: 400;
+}
+
+/* ----- Color token overrides (specificity beats Tailwind utility classes) ----- */
+.dark-theme .bg-surface,
+.dark-theme .bg-background { background-color: var(--ink-1); }
+.dark-theme .bg-surface-bright { background-color: var(--ink-4); }
+.dark-theme .bg-surface-dim { background-color: var(--ink-0); }
+.dark-theme .bg-surface-variant { background-color: var(--ink-4); }
+.dark-theme .bg-surface-container-low { background-color: var(--ink-2); }
+.dark-theme .bg-surface-container { background-color: var(--ink-3); }
+.dark-theme .bg-surface-container-high { background-color: var(--ink-4); }
+.dark-theme .bg-surface-container-highest { background-color: var(--ink-5); }
+.dark-theme .bg-surface-container-lowest { background-color: var(--ink-3); }
+.dark-theme .bg-secondary-container { background-color: var(--ink-4); }
+
+.dark-theme .text-on-surface,
+.dark-theme .text-on-background { color: var(--paper); }
+.dark-theme .text-on-surface-variant { color: var(--paper-muted); }
+.dark-theme .text-secondary { color: var(--paper-muted); }
+.dark-theme .text-outline { color: var(--paper-faint); }
+.dark-theme .text-on-secondary-container { color: var(--paper-muted); }
+
+/* Primary brand-blue text → white on dark canvas (headings, footer titles, labels) */
+.dark-theme .text-primary,
+.dark-theme .text-on-primary-container,
+.dark-theme .text-on-primary-fixed-variant { color: var(--paper); }
+
+.dark-theme .border-outline-variant\/20,
+.dark-theme .border-outline-variant\/30,
+.dark-theme .border-outline-variant\/40 { border-color: var(--hairline); }
+.dark-theme .border-outline-variant { border-color: var(--hairline-strong); }
+.dark-theme .border-outline { border-color: var(--paper-faint); }
+
+/* Brand accents brightened for dark canvas */
+.dark-theme .text-tertiary { color: var(--brand-orange-soft); }
+.dark-theme .border-tertiary { border-color: var(--brand-orange); }
+.dark-theme .border-t-2.border-tertiary,
+.dark-theme .border-t-4.border-tertiary { border-top-color: var(--brand-orange); }
+
+.dark-theme .border-t-2.border-primary,
+.dark-theme .border-t-4.border-primary { border-top-color: rgba(74, 144, 217, 0.55); }
+
+/* Footer adjustments */
+.dark-theme footer.bg-surface-container-high,
+.dark-theme footer .bg-surface-container-high { background-color: var(--ink-2); }
+.dark-theme footer { border-top-color: var(--brand-orange) !important; }
+
+/* ----- Glass surfaces ----- */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--hairline);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--hairline-strong);
+}
+.glass-dark {
+  background: rgba(10, 15, 28, 0.6);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--hairline);
+}
+
+/* ----- Sticky navigation: transparent → solid on scroll ----- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 280ms var(--ease-out-expo),
+              backdrop-filter 280ms var(--ease-out-expo),
+              -webkit-backdrop-filter 280ms var(--ease-out-expo),
+              border-color 280ms var(--ease-out-expo),
+              padding 220ms var(--ease-out-expo);
+}
+.site-nav.scrolled {
+  background: rgba(10, 15, 28, 0.85);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom-color: var(--hairline);
+}
+.site-nav .nav-link {
+  color: rgba(245, 247, 250, 0.85);
+  font-weight: 500;
+  position: relative;
+  transition: color 200ms var(--ease-out-expo);
+}
+.site-nav .nav-link:hover { color: var(--paper); }
+.site-nav .nav-link.active {
+  color: var(--paper);
+}
+.site-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--brand-orange);
+}
+.site-nav .nav-brand {
+  color: var(--paper);
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* ----- Hero overlay treatments ----- */
+.hero-veil {
+  background: linear-gradient(180deg,
+    rgba(10, 15, 28, 0.45) 0%,
+    rgba(10, 15, 28, 0.78) 60%,
+    rgba(10, 15, 28, 1) 100%);
+}
+.hero-veil-side {
+  background: linear-gradient(90deg,
+    rgba(10, 15, 28, 0.95) 0%,
+    rgba(10, 15, 28, 0.65) 50%,
+    rgba(10, 15, 28, 0.25) 100%);
+}
+.hero-veil-radial {
+  background: radial-gradient(ellipse at 30% 50%,
+    rgba(10, 15, 28, 0.4) 0%,
+    rgba(10, 15, 28, 0.85) 70%,
+    rgba(10, 15, 28, 1) 100%);
+}
+
+/* Cinematic image filter — moody documentary feel */
+.cinematic-img {
+  filter: brightness(0.62) contrast(1.08) saturate(0.92);
+}
+.cinematic-img-soft {
+  filter: brightness(0.78) contrast(1.04) saturate(0.95);
+}
+
+/* Subtle section divider */
+.section-edge-top {
+  background: linear-gradient(180deg, var(--hairline), transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* Form inputs (dark theme) */
+.dark-theme input[type="text"],
+.dark-theme input[type="email"],
+.dark-theme input[type="tel"],
+.dark-theme input[type="number"],
+.dark-theme input[type="date"],
+.dark-theme select,
+.dark-theme textarea {
+  background-color: var(--ink-2);
+  color: var(--paper);
+  border-color: var(--hairline-strong);
+  transition: border-color 200ms var(--ease-out-expo),
+              background-color 200ms var(--ease-out-expo);
+}
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder { color: var(--paper-faint); }
+.dark-theme input:focus,
+.dark-theme select:focus,
+.dark-theme textarea:focus {
+  background-color: var(--ink-3);
+  border-color: var(--brand-orange);
+  outline: none;
+}
+.dark-theme select option { background-color: var(--ink-3); color: var(--paper); }
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out-expo),
+              transform 700ms var(--ease-out-expo);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* Hairline divider utility */
+.hairline { border-color: var(--hairline); }
+
+/* Focus ring (accessibility) */
+.dark-theme :focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Subtle noise texture for depth on dark */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Wordmark utility (existing, preserved) */
+.wordmark { letter-spacing: -0.045em; }
+
+/* Mono utility */
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Clean fluid typography for hero on dark */
+.hero-display {
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.75rem, 8vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+/* Tighter variant for the split hero — narrower column needs a smaller headline
+   so it fits on one viewport-screen. Pair with `whitespace-nowrap` on the element
+   to force the natural line widths to produce a controlled breakout past the seam. */
+.hero-display-split {
+  font-size: clamp(2.25rem, 6.5vw, 6rem);
+  line-height: 0.94;
+}
+.hero-subhead {
+  font-family: 'Work Sans', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  max-width: 56ch;
+  color: rgba(245, 247, 250, 0.78);
+}
+
+/* Small section eyebrow */
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand-orange-soft);
+}
+
+/* Section h2 utility */
+.section-title {
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.875rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+/* CTA button — primary orange */
+.cta-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #bf551d 0%, #d97757 100%);
+  color: #ffffff;
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 8px 24px -10px rgba(191, 85, 29, 0.55);
+  transition: transform 280ms var(--ease-out-expo),
+              box-shadow 280ms var(--ease-out-expo);
+}
+.cta-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -10px rgba(191, 85, 29, 0.7);
+}
+
+/* Subtle ghost link */
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--hairline-strong);
+  padding-bottom: 0.25rem;
+  transition: border-color 200ms var(--ease-out-expo),
+              color 200ms var(--ease-out-expo);
+}
+.ghost-link:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange-soft);
+}
+
+/* Split hero — text column on dark, video column edge-to-edge with soft seam */
+.split-section { background-color: var(--ink-1); }
+.split-blend-left {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 9rem;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--ink-1) 0%, rgba(10, 15, 28, 0.7) 35%, rgba(10, 15, 28, 0) 100%);
+  z-index: 5;
+}
+
+/* Aligns content to the standard page-content left edge
+   (matches `max-w-screen-2xl mx-auto px-6` used by nav and section containers) */
+.content-edge-left {
+  padding-left: max(1.5rem, calc((100vw - 96rem) / 2 + 1.5rem));
+}
+
+/* Hero text legibility on raw video (no overlay) — index.html hero */
+.hero-on-video :is(.eyebrow, .hero-display, .hero-subhead) {
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(0, 0, 0, 0.5);
+}
+.hero-on-video :is(.mono, .font-headline, .text-white\/70) {
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(0, 0, 0, 0.5);
+}
+.hero-on-video .cta-orange,
+.hero-on-video .cta-orange * { text-shadow: none; }
+
+/* Hero thermal marker system — pin (on house) + connector line + label */
+.hero-markers-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+.marker-line {
+  stroke: rgba(34, 211, 238, 0.7);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0;
+  transition: opacity 700ms var(--ease-out-expo);
+  filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.55));
+}
+.marker-line.in { opacity: 1; }
+
+.marker-pin {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22d3ee;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 8px #22d3ee,
+    0 0 16px rgba(34, 211, 238, 0.65),
+    0 0 32px rgba(34, 211, 238, 0.32);
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out-expo);
+  pointer-events: none;
+  z-index: 3;
+}
+.marker-pin.in { opacity: 1; animation: marker-pulse 1.8s ease-in-out infinite; }
+@keyframes marker-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    box-shadow: 0 0 8px #22d3ee, 0 0 16px rgba(34, 211, 238, 0.65), 0 0 32px rgba(34, 211, 238, 0.32); }
+  50%      { transform: translate(-50%, -50%) scale(0.72); box-shadow: 0 0 5px #22d3ee, 0 0 10px rgba(34, 211, 238, 0.45), 0 0 18px rgba(34, 211, 238, 0.18); }
+}
+
+.marker-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  background: rgba(8, 14, 26, 0.62);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border: 1px solid rgba(34, 211, 238, 0.32);
+  border-left: 2px solid rgba(34, 211, 238, 0.9);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(245, 247, 250, 0.95);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  transition: opacity 700ms var(--ease-out-expo);
+  box-shadow:
+    0 8px 24px -12px rgba(0,0,0,0.65),
+    0 0 18px -6px rgba(34, 211, 238, 0.22);
+}
+.marker-label.in { opacity: 1; }
+
+@media (max-width: 768px) {
+  .hero-markers-lines,
+  .marker-pin,
+  .marker-label { display: none; }
+}
+
+/* Tight white-space adjustment for service-areas Leaflet popup on dark theme */
+.dark-theme .leaflet-popup-content-wrapper {
+  background: rgba(15, 21, 37, 0.95);
+  color: var(--paper);
+  border: 1px solid var(--hairline-strong);
+  backdrop-filter: blur(8px);
+}
+.dark-theme .leaflet-popup-tip { background: rgba(15, 21, 37, 0.95); }
+.dark-theme .leaflet-control-attribution {
+  background: rgba(10, 15, 28, 0.7);
+  color: var(--paper-muted);
+}
+.dark-theme .leaflet-control-attribution a { color: var(--brand-orange-soft); }
+.dark-theme .leaflet-control-zoom a {
+  background: rgba(15, 21, 37, 0.95);
+  color: var(--paper);
+  border-color: var(--hairline-strong);
+}
+.dark-theme .leaflet-control-zoom a:hover { background: rgba(26, 34, 64, 0.95); }
+
+/* ============================================
+   MOBILE NAVIGATION DRAWER
+   ============================================ */
+.nav-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
+  color: var(--paper);
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+.nav-hamburger:hover { background: rgba(255,255,255,0.05); }
+.nav-hamburger:focus-visible { outline: 2px solid var(--brand-orange); outline-offset: 2px; }
+.nav-hamburger .material-symbols-outlined { font-size: 24px; }
+
+@media (max-width: 767.98px) {
+  .nav-hamburger { display: inline-flex; }
+}
+
+.nav-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(6, 9, 15, 0.65);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms var(--ease-out-expo);
+}
+.nav-drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.nav-drawer-panel {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: min(360px, 88vw);
+  background: var(--ink-1);
+  border-left: 1px solid var(--hairline-strong);
+  padding: 1.25rem 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transform: translateX(100%);
+  transition: transform 300ms var(--ease-out-expo);
+  overflow-y: auto;
+}
+.nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
+.nav-drawer-close {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.75rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
+  color: var(--paper);
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+.nav-drawer-close:hover { background: rgba(255,255,255,0.05); }
+.nav-drawer-close:focus-visible { outline: 2px solid var(--brand-orange); outline-offset: 2px; }
+.nav-drawer-link {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  color: rgba(245, 247, 250, 0.85);
+  font-family: 'Big Shoulders Display', Impact, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--hairline);
+  transition: background-color 200ms ease, color 200ms ease, padding-left 200ms ease;
+}
+.nav-drawer-link:hover,
+.nav-drawer-link:focus-visible {
+  background: rgba(255,255,255,0.04);
+  color: var(--paper);
+  padding-left: 1.25rem;
+  outline: none;
+}
+.nav-drawer-link.active {
+  color: var(--brand-orange-soft);
+  border-left: 3px solid var(--brand-orange);
+  padding-left: calc(1rem - 3px);
+}
+.nav-drawer-cta {
+  margin-top: 1rem;
+  justify-content: center;
+}
+body.drawer-open { overflow: hidden; }
+
+/* ============================================
+   SAMPLE-REPORT — horizontal tab scroll on mobile
+   ============================================ */
+@media (max-width: 767.98px) {
+  .report-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .report-tabs .tab-btn {
+    width: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-height: 44px;
+  }
+  .report-tabs .tab-btn .material-symbols-outlined { font-size: 18px; }
+  .report-sidebar-status { display: none; }
+}
+
+/* ============================================
+   MOBILE TYPOGRAPHY — let the split hero h1 wrap on phones
+   ============================================ */
+@media (max-width: 480px) {
+  .hero-display-split { white-space: normal; }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Not Your Average Joes Home Inspections",
+  "short_name": "Avg Joes",
+  "description": "Washington State home inspection with same-day digital reports, FLIR thermal imaging, sewer scope, mold, radon, and drone services across the Puget Sound region.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1c",
+  "theme_color": "#0a0f1c",
+  "categories": ["business", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

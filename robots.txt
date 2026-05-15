@@ -1,0 +1,17 @@
+# Not Your Average Joes Home Inspections
+# https://joesinspections.com
+
+User-agent: *
+Allow: /
+
+# AI crawlers — allow indexing of public marketing pages
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://joesinspections.com/sitemap.xml

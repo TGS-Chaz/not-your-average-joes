@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf9f8",
+                        "surface-tint": "#0061a5",
+                        "surface-container": "#f0eded",
+                        "tertiary": "#9e3d02",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "on-secondary-fixed-variant": "#384668",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#00497e",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#414751",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#bf551d",
+                        "on-primary-container": "#fdfcff",
+                        "inverse-primary": "#a0caff",
+                        "surface-container-highest": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#b7c6ee",
+                        "on-secondary-container": "#4d5b7e",
+                        "on-tertiary-fixed": "#360f00",
+                        "primary": "#005ea1",
+                        "primary-container": "#2b78bf",
+                        "outline-variant": "#c1c7d2",
+                        "on-background": "#1b1c1c",
+                        "surface-variant": "#e4e2e1",
+                        "primary-fixed-dim": "#a0caff",
+                        "secondary-fixed": "#d9e2ff",
+                        "secondary-container": "#c5d4fd",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-error": "#ffffff",
+                        "secondary": "#4f5e81",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#eae7e7",
+                        "background": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#0a1a3a",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary-fixed": "#001c37",
+                        "primary-fixed": "#d2e4ff",
+                        "inverse-surface": "#303030",
+                        "outline": "#717782",
+                        "on-surface": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Work Sans"],
+                        "label": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .varsity-gradient { background: linear-gradient(135deg, #9e3d02 0%, #bf551d 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low dark:bg-slate-800 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black italic uppercase text-primary dark:text-blue-500">Not Your Average Joes</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-4 border-tertiary pb-1 -translate-y-0.5 transition-transform duration-150" href="#">Services</a>
+<a class="text-secondary dark:text-slate-400 font-medium hover:text-primary hover:text-tertiary transition-colors duration-200" href="#">Pricing</a>
+<a class="text-secondary dark:text-slate-400 font-medium hover:text-primary hover:text-tertiary transition-colors duration-200" href="#">Reviews</a>
+<a class="text-secondary dark:text-slate-400 font-medium hover:text-primary hover:text-tertiary transition-colors duration-200" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden lg:block font-medium text-primary hover:text-tertiary transition-colors" href="tel:123456789">Call or Text 24/7</a>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg font-bold varsity-gradient hover:-translate-y-0.5 transition-transform">Schedule Now</button>
+</div>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center overflow-hidden bg-primary">
+<div class="absolute inset-0 z-0">
+<img alt="Home Inspection Detail" class="w-full h-full object-cover opacity-40 mix-blend-multiply" data-alt="close-up of structural timber beams in a modern home attic with high-contrast sunlight filtering through vents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_3b-lH1ysTZAZigWgQXcnprGDK4o5YXYruf5kvB3DYF6Md45AfOYLXksdsnJLMbZN6eMOMFtVn6E8fyvB1R_UGRYIsnDqu3pPCiZeozALZ4uJmZQcKMeP2SeVFmoKs53Hn80ypRe9RnkAUOuq1ZRSN3SEuWJXadCMa8fcpKESa2MlBu54YSswMOpC3C2-sILV6zZg-qVYLk6R_wfd0tR9xTBNv-J1hgEnWFHG9fXnXIZfukP4Dvkx0T8SPNnKZs2Z_9513ehsj4D5"/>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-6 w-full">
+<h1 class="text-6xl md:text-8xl font-black tracking-tight text-white uppercase leading-none">
+                    Our Hustle.<br/>
+<span class="text-tertiary">Your Peace of Mind.</span>
+</h1>
+<p class="mt-6 text-xl md:text-2xl text-on-primary-container max-w-2xl font-medium">
+                    The varsity-level standard in home inspection. We don't just look—we investigate.
+                </p>
+</div>
+</section>
+<!-- Standard Inspections Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+<div class="max-w-3xl">
+<span class="text-tertiary font-bold tracking-widest uppercase text-sm inline-block mb-2">The Playbook</span>
+<h2 class="text-5xl font-black tracking-tight uppercase leading-none text-primary">Standard Inspections</h2>
+</div>
+<div class="h-1 w-24 bg-tertiary hidden md:block mb-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+<!-- Residential Home Inspection -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="house">house</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">Residential Home Inspection</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Our flagship full-spectrum investigation. From foundation to ridge vent, we cover 400+ data points with athletic precision.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Pre-Purchase -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">Pre-Purchase</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Don't buy a lemon. We dig deep into the property's history and current health before you sign the dotted line.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Pre-Listing -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest border-l-4 border-primary">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">Pre-Listing</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Control the narrative. Identify deal-breakers early so you can sell with confidence and zero surprises during escrow.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- New Construction -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">New Construction</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Builders aren't perfect. We verify code compliance and workmanship quality at every critical phase of the build.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- 11-Month Warranty -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">11-Month Warranty</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Make your builder pay for the repairs, not you. A comprehensive check-up before your new home warranty expires.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Commercial & Multi-Family -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between group transition-all duration-300 hover:bg-surface-container-highest">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="apartment">apartment</span>
+</div>
+<h3 class="text-2xl font-bold uppercase tracking-tight">Commercial &amp; Multi-Family</h3>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Professional asset evaluation for investors. We assess HVAC, roofing, and structural integrity for larger properties.</p>
+</div>
+<button class="flex items-center gap-2 font-bold text-primary group-hover:text-tertiary transition-colors">
+                            GET A QUOTE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialty Add-Ons Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+<div class="max-w-3xl">
+<span class="text-tertiary font-bold tracking-widest uppercase text-sm inline-block mb-2">Technical Edge</span>
+<h2 class="text-5xl font-black tracking-tight uppercase leading-none text-primary">Specialty Add-Ons</h2>
+</div>
+<div class="hidden lg:flex items-center gap-4">
+<div class="bg-tertiary/10 text-tertiary px-4 py-2 font-black uppercase text-xs tracking-widest">Tech Forward</div>
+<div class="bg-primary/10 text-primary px-4 py-2 font-black uppercase text-xs tracking-widest">Varsity Standard</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Sewer Scope -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Sewer Scope Camera" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="industrial sewer inspection camera monitor showing high-contrast pipe interior with grit and water flow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUEwLLHQt7r1NAZ4vHb4e8AUIMPo8nBsH7tz9o6S56vBoRnDPVwfqSHKcnNfNy0FRd2lE0XGL7E0fIN6OjkgkkU0lFAJAoDEvlnzfxPBjpltGelV6e9Gzc-rXuGU9nRJ2DwnTQkRzQUwoIY-Q4S8jxNNctHMUum3PAwNVslewjreUKcQVwiC56prJJ2icEQ6QSwhrfXKmLOaXeHCsmSMtHIcESCkQKRud9LnOjwcrbyq85Y49d8RIXlyDTIYMbSI_iu-tWTbi2CWfv"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Sewer Scope</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">Fiber-optic camera inspection of main waste lines to detect roots, collapses, and clogs.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Radon Testing -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-tertiary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Scientific Testing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="modern electronic radon monitor sitting on a hardwood floor in a brightly lit residential basement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzhpQgeclqlorO7gyaRo6WMZ-BsthNijmJfOgIj-8CM0smas8CQlfmltGh1o0JcvGa1Ufvg7b4W-25Re0xyMhnDrATvhE5WrqT1vGYhXs2pjzGjdtmQYcLSYM3xz7_YIRfg0fuCkbimMYiOq-E640hvI5HUSWVur6v3R0p_sXTIAFsRWi2cAQMmDJ4F4HhypUCjrQfk4FdMVW-2oyjQZcrb_Ymk9bahUDNaW9oIYgQq9HZy1WFvVrIZ-hPRE7PIDlUIvAH7KQgRX2N"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Radon Testing</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">48-hour continuous monitoring using state-of-the-art digital detectors for silent threats.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Thermal Imaging -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group relative">
+<div class="absolute top-4 right-4 bg-tertiary text-white text-[10px] font-black px-2 py-1 z-10">INCLUDED!</div>
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Thermal Camera Shot" class="w-full h-full object-cover" data-alt="infrared thermal imaging view of a house interior showing heat loss around windows in vibrant blue and orange hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_dx47mPh8A24Jco-VUzUzB9micKNzYH1aAQGCqiqoFyYoGpXB6trgtkvFzTIVEsM5n_vb0mO3HJv1F9wA8jo0S9OMsF5xzAmVRHRrrtaOu-NZAJzKzg-ZkO-aLECN07dVquK9hJ2JpQ-gc-WLE40Tkgj2ObPugoD14xbCDR4psBr6rRwYiC4IgXPgvZyGmNyhh2ok9WMg7vdGf1Hox2Cbxg9h3DwAy_wRVxG-RZmkPoGF3-TvFe8lFIOZ0rxLy6XKkIxytcReBFz6"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Thermal Imaging</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">We use FLIR technology to see what the naked eye misses—leaks, missing insulation, and electrical hot spots.</p>
+<button class="w-full py-2 bg-primary text-white font-bold text-xs uppercase tracking-widest cursor-default">Standard Feature</button>
+</div>
+<!-- Mold Testing -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Laboratory Testing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="close-up of an air sampling pump used for mold detection on a white sterile background with scientific lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMJX_uEhG8NeU-bvUcHUsduUvWEbWKzQTu4sD7FsDrhtCWmvIVO-eV9FPe4Oc0zZLM2cPhy-FJVxgmVQT2ebDyBbS12yjW2rEyHen7i2uYTQil3sG2B3eBdZwP4dkuXA7JcwydUoFFnsDrOndoEjnIIq-BBCsZ1EmiYRk9Aapvv_XXkOOWzK7TtOpF8gikfjQxnl56WZ8s42kv49M_fV_mz7hLys3jlMfEyBvdoZgN-2tCYNJp5Y3BIenAxS5TvpTDJ7545DF7-LS"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Mold Testing</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">Certified lab analysis of air and surface samples to ensure your breathing zone is safe and clean.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Indoor Air Quality -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Air Filter" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="macro shot of high-efficiency air filter fibers showing microscopic structural detail and dust collection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLWZnVYGPbBjOmxUS5cTEWEJKXRTFatDIkKaF0piyuRec0Ef4_CttdlhrpgVFIqPrl2-XMsmLxBpQyNyoP3LL6LzsQt79tfVVulKE4_0tn6KBLME-Z4uBlbTKWPYFbyqWvH_aMGDr7O2RNJz5KcU4STwEUeBs5EnqSF1uN4kzNMHGLXRSQ6iSmPo57mHRQfWSzzw9T9NZiR3kUjNdKkL5OUDwjlKxQvwfnBICasGrXED3Ji_L9HXtnw9ULUMwRYS2JPpAjxK9irCeu"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Indoor Air Quality</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">Full diagnostic of allergens, VOCs, and carbon monoxide levels throughout the home.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Water Quality -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Water Test" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="clean clear water flowing from a modern kitchen faucet into a clear glass with soft moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpNt1yRIA18PZkq_ahFCywhrNFjZmXnu_RGSuVAgtYO3ZndiEFyW3nE2_jz__rFCQK5rtpsqF25YRbe8CipkPNJhNs1ZB90xMZpjhWJuoqTOjhaiJBfYiTLpoyMh8rNnaK12LaFp3rp6yyIxDVAPaobkTHZA_g-yJgJoyktkZO6qULEcJrFw8nkjdjUgPmSseDBbLi_lt0sQw6pcQTzAWNFEUj1EEJM0FBxukbEmhGYutlGlMCpKgkhRqyNDqgy1WFmo9V4GYMIxuW"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Water Quality</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">Lab testing for Lead, Nitrates, and Coliform bacteria. Essential for homes with private wells.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Drone Inspection -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Drone Roof View" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="high-altitude drone shot of a complex residential roof with multiple gables and chimneys during golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBez35XfvBoC7nlt58YoB6Wsz8ufic1oRoCIEM_XlnYx9Bo5OSMFIhaQS2mzeCLfRGUsm8GGQAHaTyF0NMQbxkGM9LhIdvvGuI2RdNhjOdc1WE8peev1murxCRAKByr7MsENUvD69iR-GEbZuyr-fuCfMEoGbN6mwckeNpwETwvR6CdSBGJ1RKWuRZu14_5CH3jggv7FVoH5jTt567PKXvcZ9q7PmJ-u1bMbydRmF4oZX75bwEMUpHlRQZcJPkdNxbtCrptFWhBYNQz"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Drone Inspection</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">4K aerial survey of steep roofs, tall chimneys, and hard-to-access exterior structures.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+<!-- Pool/Spa -->
+<div class="bg-white p-6 shadow-sm border-l-4 border-primary flex flex-col h-full group">
+<div class="mb-6 overflow-hidden aspect-video relative">
+<img alt="Pool Pump" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="close-up of modern pool filtration equipment and pipes in a clean concrete enclosure with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTw4L80VuthSTiH2ATQgB8UYOxz3shVyEPEEMnhw2C8bpmqDTMnnO7T37stZqkINxe9EZ9ss7t_QPgQV9CLRahQVPvx_sHeEB9Jf3YztVcFPzlIiph4x8-W-0ZM3L9S_RZIRqWFb1CmevLAUVIM2fTPNvJfxgrVjMRE6ZHRv6LvXC3Wpi1LcxG9d-Wd36KhQKJ_g95hA7AdWjhK_3HbJLV6UxdV615QUSHGGNRdeLRRvKpo9nXEztaAgCK98HlpxmPkpIcIOwrZLmM"/>
+</div>
+<h4 class="text-xl font-bold uppercase mb-2">Pool/Spa</h4>
+<p class="text-sm text-on-surface-variant mb-6 flex-grow">Safety and mechanical check of pumps, heaters, lighting, and enclosure requirements.</p>
+<button class="w-full py-2 bg-surface-container-low font-bold text-xs uppercase tracking-widest hover:bg-tertiary hover:text-white transition-colors">Add to Inspection</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature "Trust Badge" CTA -->
+<section class="py-20 bg-primary text-white overflow-hidden relative">
+<div class="absolute -right-20 -bottom-20 opacity-10">
+<span class="material-symbols-outlined text-[30rem]" data-icon="shield" data-weight="fill">shield</span>
+</div>
+<div class="max-w-screen-2xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+<div class="max-w-3xl">
+<h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">Ready to book the <span class="text-tertiary">best</span> in the business?</h2>
+<p class="text-xl opacity-90 font-medium">Fast scheduling. Same-day reports. Unmatched expertise.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">
+<button class="varsity-gradient text-white px-10 py-6 text-xl font-black uppercase tracking-widest hover:scale-105 transition-transform">Schedule My Inspection</button>
+<button class="border-4 border-white text-white px-10 py-6 text-xl font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all">Download Sample Report</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t-8 border-primary bg-surface-container-high dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-6">
+<div class="text-xl font-black italic uppercase text-primary">Not Your Average Joes</div>
+<p class="text-secondary dark:text-slate-500 font-normal text-sm Work Sans">
+                    Professional home inspection services for modern homeowners. We combine traditional grit with modern technology to deliver the most thorough reports in the industry.
+                </p>
+<div class="flex gap-4">
+<a class="text-secondary hover:text-primary transition-all underline decoration-primary" href="#">Google Reviews</a>
+<a class="text-secondary hover:text-primary transition-all underline decoration-primary" href="#">Same-day Guarantee</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase tracking-widest text-primary mb-2">Legal &amp; Ethics</h4>
+<p class="font-medium tracking-widest uppercase text-xs text-secondary mb-4">ASHI Certified Inspector</p>
+<p class="text-xs leading-relaxed text-secondary opacity-75">
+                    NOTICE: A home inspection is a non-invasive, visual examination of the accessible areas of a residential property. It is designed to identify observed material defects within specific systems and components. It is not a warranty, guarantee, or insurance policy. Limitations apply to inaccessible areas and latent conditions.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase tracking-widest text-primary mb-2">Quick Links</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-secondary dark:text-slate-500 hover:text-primary transition-all underline decoration-primary text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-secondary dark:text-slate-500 hover:text-primary transition-all underline decoration-primary text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-secondary dark:text-slate-500 hover:text-primary transition-all underline decoration-primary text-sm" href="#">Sitemap</a></li>
+</ul>
+<div class="mt-8">
+<p class="font-medium tracking-widest uppercase text-xs text-secondary">© 2024 Not Your Average Joes. Licensed Home Inspector. WA State License #123456.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
