@@ -52,3 +52,10 @@ joe-source-photos/
 *.tmp
 *.orig
 .scratch/
+
+# Claude Code session settings (per-machine)
+.claude/
+
+# Development scratch scripts (not part of the deployed site)
+generate-images.js
+models.json
