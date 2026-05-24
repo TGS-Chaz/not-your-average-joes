@@ -22,6 +22,7 @@
   --brand-orange: #bf551d;
   --brand-orange-soft: #d97757;
   --brand-orange-light: #ffb596;
+  --promo-h: 40px;
 }
 
 /* ----- Body / base ----- */
@@ -29,6 +30,7 @@
   background-color: var(--ink-1);
   color: var(--paper);
   font-family: 'Work Sans', system-ui, sans-serif;
+  padding-top: var(--promo-h); /* clears the fixed promo announcement bar */
 }
 
 /* Better default font weight for dark on light text */
@@ -105,7 +107,7 @@
 /* ----- Sticky navigation: transparent → solid on scroll ----- */
 .site-nav {
   position: fixed;
-  top: 0;
+  top: var(--promo-h); /* sits directly below the promo announcement bar */
   left: 0;
   right: 0;
   z-index: 50;
@@ -147,6 +149,91 @@
   font-family: 'Big Shoulders Display', Impact, sans-serif;
   font-weight: 900;
   letter-spacing: -0.02em;
+}
+
+/* ----- Promotional announcement bar (fixed, above the nav) ----- */
+.promo-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: var(--promo-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  background: var(--ink-0);
+  border-bottom: 1px solid var(--hairline);
+}
+.promo-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  max-width: 100%;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+  white-space: nowrap;
+}
+.promo-bar__eyebrow {
+  color: var(--brand-orange-light);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+.promo-bar__svc { color: var(--paper); font-weight: 500; }
+.promo-bar__dot { color: var(--brand-orange-soft); }
+.promo-bar__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.15rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid var(--hairline-strong);
+  color: var(--brand-orange-light);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 200ms var(--ease-out-expo);
+}
+.promo-bar__cta:hover { color: var(--paper); }
+@media (max-width: 640px) {
+  .promo-bar { padding: 0 0.75rem; }
+  .promo-bar__inner { font-size: 10px; gap: 0.4rem; letter-spacing: 0.02em; }
+  .promo-bar__cta { padding-left: 0.5rem; gap: 0.2rem; }
+}
+
+/* Anchor jumps land below the fixed promo bar + nav */
+:target { scroll-margin-top: calc(var(--promo-h) + 80px); }
+
+/* Featured-services quick-link pill (hero + services callout) */
+.featured-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(10, 15, 28, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 0.75rem;
+  transition: background 200ms var(--ease-out-expo),
+              border-color 200ms var(--ease-out-expo),
+              color 200ms var(--ease-out-expo);
+}
+.featured-pill:hover,
+.featured-pill:focus-visible {
+  background: rgba(191, 85, 29, 0.2);
+  border-color: var(--brand-orange);
+  color: var(--brand-orange-light);
 }
 
 /* ----- Hero overlay treatments ----- */
